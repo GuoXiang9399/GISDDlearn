@@ -20,7 +20,6 @@ except ImportError:
 import os
 import sys
 import argparse
-
 try:
     import snakemake
 except:
@@ -31,12 +30,23 @@ except:
 from pangolin.utils.log_colours import green,cyan
 from pangolin.utils import dependency_checks
 
+# This script is the main entry point for the package,
+# and it initialises the logging, configuration and
+# parses the command line arguments.
+
 from pangolin.utils import update
 
+
+# The script initialises the logger and checks the dependencies
+# of the package. It also sets up the configuration and command
+# line argument parsing.
 
 from pangolin.utils.config import *
 from pangolin.utils.initialising import *
 import pangolin.utils.io_parsing as io
+
+# The script reads the input files, processes the data and
+# generates the output files.
 
 from pangolin.utils.report_collation import generate_final_report,get_voc_list
 

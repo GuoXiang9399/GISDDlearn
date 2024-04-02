@@ -16,19 +16,26 @@ import os
 
 import warnings
 
+# Ignore all warnings
 warnings.filterwarnings("ignore")
 
+# Define a function to find the reference sequence in a reference file
 def findReferenceSeq(referenceFile):
+	# Initialize an empty string to store the reference sequence
 	currentSeq = ""
 
+	# Open the reference file and loop through each line
 	with open(referenceFile) as f:
 		for line in f:
+			# Check if the line doesn't contain a '>'
 			if ">" not in line:
+				# If it doesn't, add the line's stripped content to the reference sequence
 				currentSeq = currentSeq + line.strip()
 
+	# Close the file
 	f.close()
+	# Return the reference sequence
 	return currentSeq
-
 # function for handling weird sequence characters
 def clean(referenceSeq,x, loc):
 	x = x.upper()
